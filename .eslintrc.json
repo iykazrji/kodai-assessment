@@ -1,0 +1,25 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": ["airbnb", "prettier"],
+  "parser": "babel-eslint",
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018
+  },
+  "plugins": ["react", "import", "resolver-babel-module", "module-resolver"],
+  "rules": {
+    "quotes": "off",
+    "no-use-before-define": "off",
+    "global-require": "off",
+    "react/jsx-closing-bracket-location": "off"
+  }
+}

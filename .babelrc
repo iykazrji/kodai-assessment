@@ -1,0 +1,18 @@
+{
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "test": "./test",
+          "components": "./components",
+          "constants": "./constants",
+          "navigation": "./navigation",
+          "screens": "./screens",
+          "underscore": "lodash"
+        }
+      }
+    ]
+  ]
+}
