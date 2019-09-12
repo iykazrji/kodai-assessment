@@ -38,6 +38,7 @@ async function loadResourcesAsync() {
   await Promise.all([
     Asset.loadAsync([
       // Add what ever images we'd want to Load here...
+      require("./assets/images/profile-avatar.jpg")
     ]),
     Font.loadAsync({
       "space-mono": require("./assets/fonts/SpaceMono-Regular.ttf"),

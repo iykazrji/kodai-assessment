@@ -21,7 +21,8 @@
       "supportsTablet": true
     },
     "packagerOpts": {
-      "sourceExts": ["js", "jsx"]
+      "config": "metro.config.js",
+      "sourceExts": ["js", "jsx", "svg", "svgx", ".ttf"]
     },
     "androidStatusBar": {
       "barStyle": "light-content"
