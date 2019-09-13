@@ -8,6 +8,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp
 } from "react-native-responsive-screen";
+import PropTypes from "prop-types";
 
 const HeaderContainer = Styled.View`
     background-color: #15161A;
@@ -189,6 +190,10 @@ const HomeScreenHeader = ({ showNotification }) => {
       </HeaderAvatarContent>
     </HeaderContainer>
   );
+};
+
+HomeScreenHeader.propTypes = {
+  showNotification: PropTypes.bool
 };
 
 export default HomeScreenHeader;

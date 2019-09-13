@@ -1,15 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { Platform } from "react-native";
 import {
   createStackNavigator,
   createBottomTabNavigator
 } from "react-navigation";
 
-import TabBarIcon from "components/TabBarIcon";
 import HomeScreen from "../screens/home-screen";
-import LinksScreen from "../screens/LinksScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+import DefaultScreen from "screens/default/default-screen";
+import TabBar from "./tab-bar";
 
 const config = Platform.select({
   web: { headerMode: "screen" },
@@ -21,13 +18,7 @@ const config = Platform.select({
   }
 });
 
-const TabBarIconWrapper = ({ focused }) => (
-  <TabBarIcon
-    focused={focused}
-    name={Platform.OS === "ios" ? "ios-link" : "md-link"}
-  />
-);
-
+// Home
 const HomeStack = createStackNavigator(
   {
     Home: HomeScreen
@@ -36,50 +27,62 @@ const HomeStack = createStackNavigator(
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: "Home",
-  tabBarIcon: TabBarIconWrapper
+  tabBarLabel: "Home"
 };
 
 HomeStack.path = "";
 
-const LinksStack = createStackNavigator(
+// Create Task
+const CreateTaskStack = createStackNavigator(
   {
-    Links: LinksScreen
+    CreateTask: DefaultScreen
   },
   config
 );
-
-TabBarIconWrapper.propTypes = {
-  focused: PropTypes.bool.isRequired
+CreateTaskStack.navigationOptions = {
+  tabBarLabel: "Create Task"
 };
 
-LinksStack.navigationOptions = {
-  propTypes: {},
-  tabBarLabel: "Links",
-  tabBarIcon: TabBarIcon
+CreateTaskStack.path = "";
+
+// Tasks
+const TasksStack = createStackNavigator(
+  {
+    Task: DefaultScreen
+  },
+  config
+);
+TasksStack.navigationOptions = {
+  tabBarLabel: "Tasks"
 };
 
-LinksStack.path = "";
+TasksStack.path = "";
 
+// Settings
 const SettingsStack = createStackNavigator(
   {
-    Settings: SettingsScreen
+    Settings: DefaultScreen
   },
   config
 );
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: "Settings",
-  tabBarIcon: TabBarIconWrapper
+  tabBarLabel: "Settings"
 };
 
 SettingsStack.path = "";
 
-const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack
-});
+const tabNavigator = createBottomTabNavigator(
+  {
+    HomeStack,
+    CreateTaskStack,
+    TasksStack,
+    SettingsStack
+  },
+  {
+    tabBarComponent: TabBar
+  }
+);
 
 tabNavigator.path = "";
 

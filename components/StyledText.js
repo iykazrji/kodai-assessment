@@ -4,6 +4,7 @@ import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 const StyledText = Styled.Text`
   font-size: ${props => (props.size ? props.size : wp("5%"))};
   color: ${props => (props.color ? props.color : "#FFFFFF")};
+  text-align: ${props => (props.center ? "center" : "left")}
 `;
 export const TextLabel = Styled(StyledText)`
   font-family: 'montserrat-regular';
