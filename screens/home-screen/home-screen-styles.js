@@ -77,7 +77,7 @@ width: ${wp("100%")};
 `;
 
 export const TextFieldContainer = Styled.View`
-  height: ${hp("6.3%")};
+  height: ${hp("6.5%")};
   background-color: rgba(255, 255, 255, 0.08);
   border-radius: 10;
   color: #FFF;
@@ -102,8 +102,11 @@ export const ControlBtn = Styled.TouchableOpacity`
   border: 1.5px solid #FFF;
   border-radius: 5;
   width: ${wp("15%")};
+  height: 100%;
   padding: 8px 10px;
   opacity: ${props => (props.active ? 0.9 : 0.2)};
+  justify-content: center;
+  align-items: center;
 `;
 
 export const UnbindBtn = Styled.TouchableOpacity`

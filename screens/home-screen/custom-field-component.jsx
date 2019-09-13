@@ -10,6 +10,8 @@ import { TextLabelBold } from "components/StyledText";
 
 const CustomFieldComponent = ({ fieldTitle, fieldType, secure, value }) => {
   const [editable, toggleEditable] = useState(false);
+  const [fieldValue, updateField] = useState(value || "");
+
   const inputRef = createRef();
   return (
     <FieldContainer>
@@ -24,11 +26,12 @@ const CustomFieldComponent = ({ fieldTitle, fieldType, secure, value }) => {
           type={fieldType}
           secureTextEntry={secure}
           selectionColor="#FFF"
-          value={value || ""}
+          value={fieldValue}
           font-size="20"
           editable={editable}
           focus={editable}
-          autoFocu={editable}
+          autoFocus={editable}
+          onChangeText={text => updateField(text)}
           style={{
             flex: 1,
             marginRight: 10
